@@ -476,4 +476,7 @@ a{
         margin-left: 0;
         margin-top: 36px;
     }
+    .footer-menu-left li{
+        font-size: 48px;
+    }
 }

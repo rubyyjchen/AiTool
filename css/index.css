@@ -90,6 +90,7 @@ body{
 .intro{
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
 }
 .intro-title{
     font-size: 120px;

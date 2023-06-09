@@ -5,10 +5,20 @@ $(document).ready(function () {
         },800)
     });
     
-    $('li').hover(function () {
+    $('li, button').hover(function () {
             $(this).addClass('active');           
         }, function () {
             $(this).removeClass('active');
         }
     );
+
+    var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+            renderBullet: function (index, className) {
+            return '<span class="' + className + '"></span>';
+          },
+        },
+      });
 });

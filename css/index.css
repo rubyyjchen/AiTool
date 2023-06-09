@@ -106,6 +106,9 @@ a{
     color: #fff;
 }
 button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 20px;
     padding: 20px 40px;
     border: 1px solid #fff;
@@ -202,6 +205,19 @@ button{
 .corp-top img, .corp-bottom img{
     width: 160px;
 }
+.mask{
+    position: absolute;
+    width: 15%;
+    height: 100px;
+    background: linear-gradient(to left, transparent 2%, #000 70%);
+}
+.mask2{
+    position: absolute;
+    right: 0;
+    width: 15%;
+    height: 100px;
+    background: linear-gradient(to right, transparent 2%, #000 70%);
+}
 .comment, .comment2{
     margin-top: 80px;
 }
@@ -274,13 +290,23 @@ button{
     border: 1px solid #F2F2F2;
     font-size: 16px;
 }
+button{
+    display: flex;
+    align-items: center;
+}
 .btn button span{
     vertical-align: bottom;
     margin-left: 14px;
+    font-size: 14px;
 }
 .filter-menu, .filter-menu2{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 0px;
+    overflow-x: scroll;
+    white-space:nowrap;
 }
 .filter-menu li, .filter-menu2 li{
     padding: 8px 16px;
@@ -353,8 +379,9 @@ button{
     justify-content: space-between;
 }
 .page {
+    display: flex;
+    justify-content: flex-end;
     margin-top: 20px;
-    text-align: right;
 }
 .page button{
     padding: 0;
@@ -379,6 +406,8 @@ button{
 .use-start{
     margin-top: 60px;
     margin-bottom: 180px;
+    display: flex;
+    justify-content: center;
 }
 .footer{
     padding: 80px 0px;
@@ -407,6 +436,9 @@ button{
 }
 .social ul li{
     padding-right: 20px;
+}
+.footer-end2{
+    display: none;
 }
 .backtotop button{
     display: flex;
@@ -456,6 +488,7 @@ button{
     }
     .corp-top, .corp-bottom{
         overflow-x: scroll;
+        background: radial-gradient(transparent 50%, rgba(0,0,0,0.7) 100%);
     }
     .comment{
         display: none;
@@ -483,11 +516,10 @@ button{
     }
     .filter-menu2{
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        padding: 0px;
-        overflow-x: scroll;
-        white-space:nowrap;
+        justify-content: flex-start;
+    }
+    .filter .btn button{
+        padding-right: 32px;
     }
     .ai-menu li{
         width: 100%;
@@ -502,12 +534,22 @@ button{
     .footer-menu-left li{
         font-size: 48px;
     }
+    .footer-end{
+        display: none;
+    }
     .footer-end-left{
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        margin: 36px 0px;
+    }
+    .footer-end2{
+        display: initial;
+    }
+    .social{
+        margin-bottom: 30px;
     }
     .social ul{
         margin-left: 0;
-        margin-top: 36px;
     }
     .backtotop{
         text-align: right;

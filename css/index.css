@@ -53,7 +53,7 @@ body{
     font-size: 16px;
 }
 .container{
-    max-width: 1296px;
+    max-width: 1320px;
     margin: 0 auto;
     padding-left: 12px;
     padding-right: 12px;
@@ -69,6 +69,11 @@ body{
     border-bottom: 1px solid #fff;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+.header-left h1 a{
+    text-indent:101%;
+    overflow:hidden;
+    white-space: nowrap;
 }
 .header-left img{
     width: 250px;
@@ -89,6 +94,9 @@ body{
 .intro-title{
     font-size: 120px;
 }
+.break{
+    display: none;
+}
 .btn{
     margin-bottom: 40px;
     margin-top: 40px;
@@ -97,11 +105,14 @@ a{
     text-decoration: none;
     color: #fff;
 }
-.btn a{
+button{
     font-size: 20px;
     padding: 20px 40px;
     border: 1px solid #fff;
     border-radius: 16px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
 }
 .move{
     margin-top: 100px;
@@ -179,7 +190,7 @@ a{
 .corp{
     font-size: 32px;
 }
-.corp p{
+.corp h2{
     margin-bottom: 80px;
 }
 .corp-top, .corp-bottom{
@@ -191,14 +202,14 @@ a{
 .corp-top img, .corp-bottom img{
     width: 160px;
 }
-.comment{
+.comment, .comment2{
     margin-top: 80px;
 }
 .comment ul{
     display: flex;
     justify-content: space-between;
 }
-.comment ul li{
+.comment ul li, .swiper-slide{
     display: flex;
     flex-direction: column;  
     width: 32%;
@@ -220,6 +231,9 @@ a{
 }
 .user-name{
     font-weight: 700;
+}
+.comment2{
+    display: none;
 }
 .ai-tool{
     margin-top: 160px;
@@ -254,22 +268,25 @@ a{
     justify-content: space-between;
     align-items: center;
 }
-.btn a span{
+.ai-tool .btn button{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #F2F2F2;
+    font-size: 16px;
+}
+.btn button span{
     vertical-align: bottom;
     margin-left: 14px;
 }
-.filter a{
-    border: 1px solid #F2F2F2;
-}
-.filter-menu ul, .filter-menu2 ul{
+.filter-menu, .filter-menu2{
     display: flex;
     flex-wrap: wrap;
 }
-.filter-menu ul li, .filter-menu2 ul li{
+.filter-menu li, .filter-menu2 li{
     padding: 8px 16px;
     margin-left: 5px;
 }
-.filter-menu ul .active, .filter-menu2 ul .active{
+.filter-menu .active, .filter-menu2 .active{
     background: #F2F2F2;
     border-radius: 16px;
     color: #020202;
@@ -282,13 +299,13 @@ a{
     text-decoration: none;
     color: #000;
 }
-.ai-menu ul{
+.ai-menu{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 60px;
 }
-.ai-menu ul li{
+.ai-menu li{
     width: 32%;
     border: 1px solid #F2F2F2;
     border-radius: 16px;
@@ -299,15 +316,15 @@ a{
     cursor: pointer;  
     /*   改變滑鼠屬標 */
 }
-.ai-menu ul li .img{
+.ai-menu li .img{
     overflow: hidden;/*讓元素(圖片)超過範圍(li)的時隱藏*/
 }
-.ai-menu ul li .img img{
+.ai-menu li .img img{
     width: 100%;
     transition:all ease 1s;
     /*   transition定義元件在兩個狀態之間切換的轉場效果 */
 }
-.ai-menu ul li:hover .img img{
+.ai-menu li:hover .img img{
     transform: scale(1.2);
 }
 .content .title{
@@ -337,22 +354,18 @@ a{
 }
 .page {
     margin-top: 20px;
+    text-align: right;
 }
-.page ul{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.page ul li{
+.page button{
+    padding: 0;
+    text-align: center;
     width: 48px;
     height: 48px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-left: 4px;
+    background: #fff;
+    color: #000;
 }
-.page ul li.active{
+.page button.active{
     background-color: #000;
     color: #fff;
 }
@@ -383,6 +396,10 @@ a{
 .footer-end{
     padding: 20px 0px;
     display: flex;
+    justify-content: space-between;
+}
+.footer-end-left{
+    display: flex;
 }
 .social ul{
     display: flex;
@@ -391,17 +408,12 @@ a{
 .social ul li{
     padding-right: 20px;
 }
-.backtotop{
-    position: fixed;
-    right: 0;
-    bottom: 0;
-}
 .backtotop button{
     display: flex;
     align-items: center;
-    padding: 20px;
-    background: #000;
-    color: #fff;
+    font-size: 16px;
+    border: 0;
+    padding: 0;
 }
 @media (max-width:768px) {
     .header-menu{
@@ -412,6 +424,9 @@ a{
     }
     .intro-title{
         font-size: 48px;
+    }
+    .break{
+        display: initial;
     }
     .move .grass{
         width: 100%;
@@ -437,13 +452,23 @@ a{
     .tool{
         width: 100%;
         margin-bottom: 12px;
+        padding: 40px 20px;
     }
-    .comment ul{
-        flex-direction: column;
+    .corp-top, .corp-bottom{
+        overflow-x: scroll;
     }
-    .comment ul li{
+    .comment{
+        display: none;
+    }
+    .comment2{
+        display: block;
+    }
+    .swiper {
         width: 100%;
-        margin-bottom: 20px;
+        height: 100%;
+      }
+    .swiper-pagination-bullet{
+        background: #fff;
     }
     .ai-tool{
         padding-top: 80px;
@@ -457,9 +482,14 @@ a{
         display: none;
     }
     .filter-menu2{
-        display: initial;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 0px;
+        overflow-x: scroll;
+        white-space:nowrap;
     }
-    .ai-menu ul li{
+    .ai-menu li{
         width: 100%;
     }
     .footer-menu{
@@ -469,14 +499,17 @@ a{
     .footer-menu-right{
         margin-bottom: 40px;      
     }
-    .footer-end{
+    .footer-menu-left li{
+        font-size: 48px;
+    }
+    .footer-end-left{
         flex-direction: column;
     }
     .social ul{
         margin-left: 0;
         margin-top: 36px;
     }
-    .footer-menu-left li{
-        font-size: 48px;
+    .backtotop{
+        text-align: right;
     }
 }

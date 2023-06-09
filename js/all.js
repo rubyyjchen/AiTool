@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#scrollToTop').click(function (e) { 
+    $('.backtotop').click(function (e) { 
         $('html, body').animate({
           scrollTop : 0
         },800)
